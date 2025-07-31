@@ -1,5 +1,4 @@
-from django.shortcuts import redirect
-from flask import Blueprint, render_template, request, url_for
+from flask import Blueprint, render_template, request, url_for,redirect
 from flask_login import login_required
 
 bp = Blueprint('blog', __name__)
