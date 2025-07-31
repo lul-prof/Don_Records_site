@@ -1,4 +1,3 @@
-from django.shortcuts import redirect
 from flask import Blueprint, render_template, request, url_for
 from flask_login import login_required
 
