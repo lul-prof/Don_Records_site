@@ -29,9 +29,6 @@ PyMySQL==1.1.1
 mysqlclient==2.2.5
 
 # --- Payments ---
-stripe==12.1.0
-paypalrestsdk==1.13.1
-
 
 
 # --- Security ---
@@ -45,7 +42,6 @@ pyOpenSSL==25.0.0
 Pillow==11.0.0
 
 
-python-mpesa==0.1.10
 
 Werkzeug==2.0.3
 
