@@ -1,0 +1,58 @@
+.flash-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.flash-message {
+  position: relative;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.flash-message.success {
+  background-color: #28a745;
+}
+
+.flash-message.error {
+  background-color: #dc3545;
+}
+
+.flash-message.warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: inherit;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  color: white;
+}
+.alert-success { background-color: #28a745; }
+.alert-danger { background-color: #dc3545; }
+.alert-warning { background-color: #ffc107; color: #333; }
+.alert-info { background-color: #17a2b8; }
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}

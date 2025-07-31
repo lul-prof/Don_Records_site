@@ -1,0 +1,23 @@
+{% extends 'artist/dashboard.html' %}
+{% block title %}My Music{% endblock %}
+
+
+
+{% block content %}
+<main class="container">
+  <header class="navbar">
+    <h1>My Uploaded Music</h1>
+    <a href="{{ url_for('artist.index') }}">← Back to Dashboard</a>
+  </header>
+  <section class="music-table">
+    {% for music in music_list %}
+      <div class="track">
+        <strong>{{ music.title }}</strong> - {{ music.genre }}
+        <audio controls src="{{ music.url }}"></audio>
+      </div>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}
+
+

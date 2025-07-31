@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+h1, h2 {
+    color: #333;
+}
+nav a {
+    margin: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+form label, form input, form button {
+    display: block;
+    margin: 10px 0;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+body.container {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #343a40;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.navbar a {
+  color: #61dafb;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.welcome-card, .form-card, .beat-card, .confirmation {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin: 2rem;
+}
+
+input, button, select, audio {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.music-table .track, .beat-grid .beat-card {
+  margin-bottom: 1.5rem;
+}
+
+.beat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}

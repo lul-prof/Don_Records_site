@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+
+    {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <main class="container">
+  <header class="navbar">
+    <h1>💳 Checkout</h1>
+    <a href="{{ url_for('artist.beat_store') }}">← Continue Shopping</a>
+  </header>
+  <section class="checkout-form">
+    <form method="post">
+      <label for="item">Item:</label>
+      <input type="text" name="item" value="{{ item_name }}" readonly>
+
+      <label for="price">Amount:</label>
+      <input type="text" name="price" value="KES {{ amount }}" readonly>
+
+      <label for="method">Payment Method:</label>
+      <select name="method" required>
+        <option value="mpesa">M-Pesa</option>
+        <option value="paypal">PayPal</option>
+        <option value="card">Card</option>
+      </select>
+
+      <button type="submit">Pay Now</button>
+    </form>
+  </section>
+</main>
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <p>&copy; 2023 Don Records. All rights reserved.</p>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+{% endblock %}
+</body>
+</html>

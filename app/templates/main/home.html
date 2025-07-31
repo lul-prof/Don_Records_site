@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}Don Records Homepage {% endblock %} 
+
+  {% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  {% endblock %}
+
+  {% block extra_css %} {% endblock %}
+
+{% block header %}
+  <header>
+    <div class="logo">
+        <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Don Records"></a>
+    </div>
+  <div class="navbar">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#faqs">FAQS</a>
+      <a href="#contact">Contacts</a>
+      <a href="{{ url_for('auth.login') }}">Login</a>
+
+  </header>
+{% endblock %}
+
+{% block content %}
+
+
+  <section class="hero">
+    <h1>JIAMINI NAKUAMINI</h1>
+    <div class="hero-buttons">
+      <button>Explore Artists</button>
+      <button>Listen Now</button>
+    </div>
+  </section>
+
+  <section class="featured-artists">
+    <h2>Featured Artists</h2>
+    <div class="artist-grid">
+      {% for artist in ['Toxic Lyrikali', 'Mauru Gwash', 'Top Boyz', 'Kitosh', 'BFL'] %}
+      <div class="artist-card">
+        <div class="artist-photo"></div>
+        <h3>{{ artist }}</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur.</p>
+        <button>View Profile</button>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+    <section class="featured-artists">
+    <h2>Featured Producers</h2>
+    <div class="artist-grid">
+      {% for producer in ['Beat kid','Top Boyz', 'Prod Chris', 'Sparroh'] %}
+      <div class="artist-card">
+        <div class="artist-photo"></div>
+        <h3>{{ artist }}</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur.</p>
+        <button>View Profile</button>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="beat-store">
+          <!-- Cart Icon Button -->
+<button id="cart-button" class="cart-button">
+  🛒 Cart <span id="cart-count">0</span>
+</button>
+
+<!-- Shopping Cart Drawer -->
+<div id="cart-drawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button id="close-cart" class="close-btn">✖</button>
+  </div>
+  <div id="cart-items" class="cart-items">
+    <!-- Items injected via JS -->
+  </div>
+  <div class="cart-footer">
+    <a href="{{ url_for('payment.index') }}"><button id="checkout-btn" class="checkout-btn">Proceed to Checkout</button></a>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast hidden">Item added to cart</div>
+    </nav>
+  </div>
+    <h2>Beat Store</h2>
+    <div class="beat-grid">
+      {% for beat in ['Beat 1', 'Beat 2', 'Beat 3', 'Beat 4'] %}
+      <div class="beat-card">
+        <p>{{ beat }}</p>
+        <audio controls>
+          <source src="{{ url_for('static', filename='audio/sample.mp3') }}" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+        <button class="add-to-cart" data-name="{{ beat }}" data-price="10">Buy Now</button>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="music-section">
+    <h2>Music</h2>
+    <div class="music-card">
+      <p>Track 1 - 1:38</p>
+      <audio controls>
+        <source src="{{ url_for('static', filename='audio/sample.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </section>
+
+  <section class="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-grid">
+      <div class="event-card">
+        <h4>APR 23</h4>
+        <p>Release Party</p>
+      </div>
+      <div class="event-card">
+        <h4>MAY 10</h4>
+        <p>Live Performance</p>
+      </div>
+      <div class="event-card">
+        <h4>JUN 05</h4>
+        <p>Album Launch</p>
+      </div>
+    </div>
+  </section>
+
+<hr>
+<section id="about" class="about">
+  <h2>About Don Records</h2>
+  <p>Founded by underground artists for underground artists, Don Records is a Nairobi-based label focused on authentic sound, street culture, and digital media presence.</p>
+</section>
+
+<hr>
+<section id="services" class="services">
+  <h2>Our Services</h2>
+  <ul style="list-style-type: none;">
+    <li>🎙 Beat production & licensing</li>
+    <li>📸 Music video & promo shoots</li>
+    <li>📀 Digital distribution & marketing</li>
+    <li>🎧 Studio sessions & mixing/mastering</li>
+  </ul>
+</section>
+<hr>
+
+
+<section id="faqs" class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h3>How do I submit my demo?</h3>
+    <p>Email us at <span style="color: black; font-weight: bolder;"> demos@donrecords.com </span> with your track and bio.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do you offer music video shoots?</h3>
+    <p>Yes! We have an in-house team for visual production.</p>
+  </div>
+</section>
+
+<hr>
+
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form action="/contact" method="post">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+<hr>
+  
+
+  <section class="newsletter">
+    <h2>Subscribe for updates</h2>
+    <form>
+      <input type="email" placeholder="Email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Follow us on:</p>
+    <div class="social-links" style="padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+      <a href="https://www.facebook.com/donrecords" target="_blank">Facebook</a>
+      <a href="https://www.twitter.com/donrecords" target="_blank">Twitter</a>
+      <a href="https://www.youtube.com/donrecords" target="_blank">YouTube</a>  
+      <a href="https://www.tiktok.com/@donrecords" target="_blank">TikTok</a>
+    </div>
+
+  <hr>
+
+    <p>&copy; 2025 Don Records. All rights reserved.</p>
+  </footer>
+{% endblock %}
+
+{% block js %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
+
+{% block extra_js %} {% endblock %}

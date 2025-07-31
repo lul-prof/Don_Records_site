@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Producer Dashboard{% endblock %}</title>
+    {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/producer.css') }}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+<main class="container">
+  <header class="navbar">
+    <h1>🎚️ Producer Dashboard</h1>
+    <nav>
+      <a href="{{ url_for('producer.upload_beat') }}">Upload Beat</a>
+      <a href="{{ url_for('producer.beat_list') }}">My Beats</a>
+      <a href="{{ url_for('producer.collaboration') }}">Collaborations</a>
+      <a href="{{ url_for('producer.purchase') }}">Sales</a>
+    </nav>
+  </header>
+  <section class="welcome-card">
+    <h2>Welcome, {{ producer_name }}!</h2>
+    <p>Share your beats, grow your brand, and collaborate with artists.</p>
+  </section>
+</main>
+{% endblock %}
+
+</body>
+{% block footer %}
+    <footer class="footer">
+        <p>&copy; 2023 Don Records. All rights reserved.</p>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/producer.js') }}"></script>
+{% endblock %}
+</html>

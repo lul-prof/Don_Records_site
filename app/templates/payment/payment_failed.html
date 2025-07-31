@@ -1,0 +1,11 @@
+{% extends 'payment/checkout.html' %}
+{% block content %}
+
+<main class="container">
+  <section class="payment-status failed">
+    <h1>❌ Payment Failed</h1>
+    <p>Sorry, something went wrong with your transaction.</p>
+    <a href="{{ url_for('payment.checkout') }}" class="btn">Try Again</a>
+  </section>
+</main>
+{% endblock %}

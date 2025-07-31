@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Admin Dashboard{% endblock %}</title>
+
+  {% block styles %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+  {% endblock %}
+<body>
+
+  {% block content %}
+      <div class="sidebar">
+        <h2>Don Records</h2>
+        <ul>
+            <li onclick="showPanel('dashboard')">Dashboard</li>
+            <li onclick="showPanel('users')">Users</li>
+            <li onclick="showPanel('beats')">Beats</li>
+            <li onclick="showPanel('blog')">Blog</li>
+            <li onclick="showPanel('artists')">Artists</li>
+            <li onclick="showPanel('revenue')">Revenue</li>
+        </ul>
+    </div>
+    <div class="main">
+        <div id="dashboard" class="panel active">
+            <h1>Welcome Admin</h1>
+            <p>Use the side menu to manage Don Records content.</p>
+        </div>
+        <div id="users" class="panel">
+            <h2>Users</h2>
+            <button>Approve User</button>
+            <button>Delete User</button>
+            <div id="userList">Loading users...</div>
+        </div>
+        <div id="beats" class="panel">
+            <h2>Upload New Beats</h2>
+            <input type="file">
+            <button>Upload</button>
+        </div>
+        <div id="blog" class="panel">
+            <h2>Manage Blog</h2>
+            <textarea placeholder="Write new blog post..."></textarea>
+            <button>Post</button>
+        </div>
+        <div id="artists" class="panel">
+            <h2>Manage Artists</h2>
+            <button>Add Artist</button>
+            <button>Remove Artist</button>
+        </div>
+        <div id="revenue" class="panel">
+            <h2>Revenue Overview</h2>
+            <p>Total Earnings: KES 0.00</p>
+        </div>
+    </div>
+    {% endblock %}
+{% block js %}
+  <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}
+
+{% block extra_js %} {% endblock %}
+</body>
+</html>
+
+
+

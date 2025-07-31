@@ -1,0 +1,32 @@
+{% extends 'artist/dashboard.html' %}
+
+   {% block title %}Beat Store{% endblock %}
+
+
+{% block content %}
+<main class="container">
+  <header class="navbar">
+    <h1>🎧 Beat Store</h1>
+    <a href="{{ url_for('artist.index') }}">← Back to Dashboard</a>
+  </header>
+  <section class="beat-grid">
+    {% for beat in beats %}
+      <div class="beat-card">
+        <h3>{{ beat.title }}</h3>
+        <audio controls src="{{ beat.preview_url }}"></audio>
+        <p>Price: KES {{ beat.price }}</p>
+        <form action="{{ url_for('artist.purchase', beat_id=beat.id) }}" method="post">
+          <button type="submit">Buy</button>
+        </form>
+      </div>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}
+
+
+
+
+
+
+

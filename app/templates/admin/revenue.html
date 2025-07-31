@@ -1,0 +1,33 @@
+{% extends 'admin/dashboard.html' %}
+{% block content %}
+  <h2>Revenue Overview</h2>
+  <p>Total Revenue: <strong>KES {{ total_revenue }}</strong></p>
+  <div style="max-width: 700px;">
+    <canvas id="revChart"></canvas>
+  </div>
+{% endblock %}
+{% block extra_js %}
+<script>
+  const rctx = document.getElementById('revChart').getContext('2d');
+  new Chart(rctx, {
+    type: 'line',
+    data: {
+      labels: ['Week 1', 'Week 2', 'Week 3','Week 4'],
+      datasets: [{
+        label: 'Weekly Revenue',
+        data: [2000, 3000, 2500, 8500],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192,75)',
+        tension: 0.1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        title: { display: true, text: 'Weekly Revenue Trends' }
+      }
+    }
+  });
+</script>
+{% endblock %}

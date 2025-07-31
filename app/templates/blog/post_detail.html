@@ -1,0 +1,14 @@
+{% extends 'blog/dashboard.html' %}
+{% block content %}
+
+<main class="container">
+  <header class="navbar">
+    <h1>{{ post.title }}</h1>
+    <p class="meta">By {{ post.author }} on {{ post.date_posted.strftime('%b %d, %Y') }}</p>
+  </header>
+  <section class="post-content">
+    <p>{{ post.content }}</p>
+    <a href="{{ url_for('blog.edit_post', post_id=post.id) }}" class="btn">Edit Post</a>
+  </section>
+</main>
+{% endblock %}

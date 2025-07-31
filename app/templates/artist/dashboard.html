@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Artist Dashboard{% endblock %}</title>
+    {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/artist.css') }}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+ <main class="container">
+  <header class="navbar">
+    <h1>🎵 Artist Dashboard</h1>
+    <nav>
+        <a href="{{ url_for('artist.upload_music') }}">Upload Music</a>
+        <a href="{{ url_for('artist.music_list') }}">My Music</a>
+        <a href="{{ url_for('artist.beat_store') }}">Beat Store</a>
+        <a href="{{ url_for('auth.logout') }}">Logout</a>
+    </nav>
+  </header>
+  <section class="welcome-card">
+    <h2>Welcome, {{ artist }}!</h2>
+    <p>Manage and grow your music journey.</p>
+  </section>
+</main>
+{% endblock %}
+    
+{% block footer %}
+    <footer class="footer">
+        <p>&copy; 2023 Don Records. All rights reserved.</p>
+    </footer>
+{% endblock %}
+</body>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/artist.js') }}"></script>
+{% endblock %}
+</html>
+

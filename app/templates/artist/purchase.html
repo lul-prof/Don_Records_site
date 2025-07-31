@@ -1,0 +1,22 @@
+{% extends 'artist/dashboard.html' %}
+    
+{% block title %}Purchase Confirmation{% endblock %}
+
+
+{% block content %}
+<main class="container">
+  <header class="navbar">
+    <h1>Thank you for your purchase!</h1>
+    <a href="{{ url_for('artist.store') }}">← Back to Beat Store</a>
+  </header>
+  <section class="confirmation">
+    <p>You have successfully purchased <strong>{{ beat.title }}</strong>.</p>
+    <a href="{{ beat.download_url }}" download>Download Now</a>
+  </section>
+</main>
+{% endblock %}
+
+
+
+
+

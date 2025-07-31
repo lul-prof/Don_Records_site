@@ -1,0 +1,17 @@
+{% extends 'producer/dashboard.html' %}
+{% block content %}
+<main class="container">
+  <header class="navbar">
+    <h1>My Beats</h1>
+    <a href="{{ url_for('producer.index') }}">← Back to Dashboard</a>
+  </header>
+  <section class="beat-table">
+    {% for beat in beats %}
+      <div class="track">
+        <strong>{{ beat.title }}</strong> - {{ beat.genre }} | KES {{ beat.price }}
+        <audio controls src="{{ beat.url }}"></audio>
+      </div>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}

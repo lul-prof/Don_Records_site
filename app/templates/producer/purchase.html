@@ -1,0 +1,14 @@
+
+{% extends 'producer/dashboard.html' %}
+{% block content %}
+<main class="container">
+  <header class="navbar">
+    <h1>Sales Confirmation</h1>
+    <a href="{{ url_for('producer.beat_list') }}">← Back to My Beats</a>
+  </header>
+  <section class="confirmation">
+    <p>{{ buyer_name }} has purchased <strong>{{ beat.title }}</strong>.</p>
+    <p>Revenue: <strong>KES {{ beat.price }}</strong></p>
+  </section>
+</main>
+{% endblock %}

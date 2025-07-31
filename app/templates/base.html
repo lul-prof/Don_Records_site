@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Don Records{% endblock %}</title>
+
+  {% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% endblock %}
+
+  {% block extra_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flash.css') }}">
+  {% endblock %}
+
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+
+</head>
+
+
+<body>
+{% block header %}
+
+{% endblock %}
+
+
+
+{% block flash %}
+
+<div class="flash-container">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message {{ category }}">
+          <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>
+
+{% endblock %}
+
+
+
+  {% block content %}
+  <div class="landing-container">
+    <div class="glass-card">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Don Records">
+        <h1>DON RECORDS</h1>
+      </div>
+      <h2 class="tagline">JIAMINI<br>NAKUAMINI</h2>
+      <p class="artists">Toxic Lyrikali · Mauru Gwash · Top Boyz · Kitosh · BFL</p>
+      <div class="cta-buttons">
+        <a href="{{ url_for('auth.login') }}"><button>Explore</button></a>
+        <a href="{{ url_for('main.contact') }}"><button>Contact</button></a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
+
+{% block extra_js %} 
+<script src="{{ url_for('static', filename='js/flash.js') }}"></script>
+{% endblock %}
+</body>
+</html>

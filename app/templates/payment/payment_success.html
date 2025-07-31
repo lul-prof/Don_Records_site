@@ -1,0 +1,10 @@
+{% extends 'payment/checkout.html' %}
+{% block content %}
+<main class="container">
+  <section class="payment-status success">
+    <h1>✅ Payment Successful</h1>
+    <p>Thank you! Your transaction was successful.</p>
+    <a href="{{ url_for('artist.dashboard') }}" class="btn">Go to Dashboard</a>
+  </section>
+</main>
+{% endblock %}
